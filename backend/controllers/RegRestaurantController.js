@@ -1,6 +1,7 @@
 const Restaurant = require("../models/RegRestaurantModel");
+var bcrypt = require('bcryptjs'); 
 
-const regRestaurant= (req, res) => {
+const regRestaurant= async (req, res) => {
   const {
     image,
     restaurantName,
@@ -17,6 +18,8 @@ const regRestaurant= (req, res) => {
 
   console.log(req.body);
 
+  var salt = bcrypt.genSaltSync(10);
+  var hash = bcrypt.hashSync(password, salt); 
   const newRestaurant = new Restaurant({
     image,
     restaurantName,
@@ -27,16 +30,23 @@ const regRestaurant= (req, res) => {
     telephone,
     category,
     email,
-    password,
+    password: hash,
     confirmpassword,
    
   });
-
+ 
   newRestaurant
     .save()
     .then((createdRestaurant) => {
+  
+
+    
       res.status(200).json(createdRestaurant);
+    
+    
     })
+
+    
     .catch((err) => {
       console.log(err);
     });
@@ -103,10 +113,34 @@ const removeRestaurant = async (req, res) => {
   }
 }
 
+const login = async(req, res) => {
+
+  const hotelEmail = req.body.email;
+  const hotelPAssword = req.body.password;
+
+  console.log("hotelEmail", hotelEmail);
+  console.log("hotelPAssword", hotelPAssword);
+
+  try {
+    const restaurant = await Restaurant.find({email:hotelEmail });
+    console.log("restaurant", restaurant[0]);
+    const isValidPassword =  bcrypt.compareSync(hotelPAssword, restaurant[0].password); 
+   
+    if(restaurant && isValidPassword){
+      return res.status(200).json("Logged in successful!");
+    }else {
+      return res.status(403).json("Email or password is incorrect!");
+    } 
+  } catch (error) { 
+    res.status(400).json(error.message);
+  } 
+}
+
 module.exports = {
   regRestaurant,
   getrestaurant,
   getsinglerestaurant,
   updateRestaurant,
   removeRestaurant,
+  login
 };

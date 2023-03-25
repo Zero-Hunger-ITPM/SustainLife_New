@@ -17,7 +17,7 @@ const header = () => {
                         <a href="#home" className="nav__link active-link">Home</a>
                     </li>
                     <li className="nav__item">
-                        <a href="#about" className="nav__link">About us</a>
+                        <a href="#about" className="nav__link" >About us</a>
                     </li>
                     <li className="nav__item">
                         <a href="#services" className="nav__link">Services</a>

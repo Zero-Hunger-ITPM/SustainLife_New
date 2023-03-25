@@ -6,6 +6,7 @@ import{BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 
 /* Home Page */
 import Home from "./components/home";
+import RegRestaurantForm from "./pages/restaurant/RegRestaurantForm";
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
         
         {/* Home Page */}
         <Route path='/' element={<Home/>}/>
-
+        <Route path='/RestaurantForm' element={<RegRestaurantForm/>}/>
         
         </Routes> 
     </Router>
