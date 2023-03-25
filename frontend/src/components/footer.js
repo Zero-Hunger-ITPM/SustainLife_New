@@ -12,7 +12,7 @@ const footer = () => {
                     <div className="footer__content">
                         <h3 className="footer__title">Donate Now</h3>
                         <ul className="footer__links">
-                            <li><a href="#" className="footer__link">Help for Food wastage </a></li>
+                            <li><a href="/RestaurantForm" className="footer__link">Help for Food wastage </a></li>
                             <li><a href="#" className="footer__link">Blog</a></li>
                         </ul>
                     </div>
