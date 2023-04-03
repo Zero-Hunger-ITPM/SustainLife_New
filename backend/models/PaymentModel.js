@@ -8,12 +8,12 @@ const PaymentSchema = new mongoose.Schema(
 
     amount: {
       type: String,
-      required: true,
+      
     },
 
     paid: {
-      type: Boolean,
-      required: true,
+      type: Number,
+      
     },
 
     paidBy: {
@@ -29,6 +29,6 @@ const PaymentSchema = new mongoose.Schema(
   }
 );
 
-const PaymentModel = mongoose.model("PaymentModel", PaymentSchema);
+const PaymentModel = mongoose.model("Payment", PaymentSchema);
 
 module.exports = PaymentModel;

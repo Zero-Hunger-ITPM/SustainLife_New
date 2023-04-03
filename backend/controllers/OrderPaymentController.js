@@ -24,7 +24,6 @@ const fetchProductsByLocation = (req, res) => {
   });
 };
 
-
 const getSingleItem = (req, res) => {
   console.log(req.params.pid);
   Product.findById(req.params.pid, (err, data) => {
@@ -62,6 +61,7 @@ const getSingleOrder = (req, res) => {
 };
 
 const createPayment = (req, res) => {
+  console.log(req.body);
   Payment.create(req.body, (err, data) => {
     if (err) res.status(500).json({ error: err });
     res.status(201).json(data);
@@ -88,4 +88,5 @@ module.exports = {
   getSingleOrder,
   getOrders,
   getPayments,
+ 
 };
