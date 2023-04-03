@@ -13,6 +13,7 @@ const footer = () => {
                         <h3 className="footer__title">Donate Now</h3>
                         <ul className="footer__links">
                             <li><a href="/RestaurantForm" className="footer__link">Help for Food wastage </a></li>
+                            <li><a href="/ProductForm" className="footer__link">Add Products </a></li>
                             <li><a href="#" className="footer__link">Blog</a></li>
                         </ul>
                     </div>
