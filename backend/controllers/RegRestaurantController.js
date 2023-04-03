@@ -38,15 +38,8 @@ const regRestaurant= async (req, res) => {
   newRestaurant
     .save()
     .then((createdRestaurant) => {
-  
-
-    
       res.status(200).json(createdRestaurant);
-    
-    
     })
-
-    
     .catch((err) => {
       console.log(err);
     });
@@ -114,10 +107,8 @@ const removeRestaurant = async (req, res) => {
 }
 
 const login = async(req, res) => {
-
   const hotelEmail = req.body.email;
   const hotelPAssword = req.body.password;
-
   console.log("hotelEmail", hotelEmail);
   console.log("hotelPAssword", hotelPAssword);
 
