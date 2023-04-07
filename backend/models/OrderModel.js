@@ -41,7 +41,7 @@ const OrderSchema = new mongoose.Schema(
       type: String,
     },
 
-   /* user: {
+   /*user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       //ref: "AppUser",
@@ -52,6 +52,6 @@ const OrderSchema = new mongoose.Schema(
   }
 );
 
-const OrderModel = mongoose.model("OrderModel", OrderSchema);
+const OrderModel = mongoose.model("Order", OrderSchema);
 
 module.exports = OrderModel;
