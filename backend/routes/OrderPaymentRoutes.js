@@ -21,7 +21,7 @@ router.get("/product/:pid", getSingleItem);
 router.post("/orders", createOrder);
 router.get("/all", getOrders);
 router.get("/:id", getSingleOrder);
-router.post("/", createPayment);
+router.post("/payment", createPayment);
 router.get("/", getPayments);
 
 
