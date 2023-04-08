@@ -7,8 +7,7 @@ const addDonator = (req, res) => {
   address, 
   phone_no,
   donation_type,
-  d_qty, 
-  location
+  d_qty
      
   } = req.body;
 
@@ -21,7 +20,6 @@ const addDonator = (req, res) => {
   phone_no,
   donation_type,
   d_qty, 
-  location
   });
 
   newDonator
@@ -64,9 +62,9 @@ const updateDonator = async (req, res) => {
       return res.status(404).json("There is a no Donators");
     }
 
-    const { first_name, last_name, address, phone_no, donation_type, d_qty, location} = req.body;
+    const { first_name, last_name, address, phone_no, donation_type, d_qty} = req.body;
     
-    const donato = await Donator.findByIdAndUpdate(donatorId, {first_name, last_name, address, phone_no, donation_type, d_qty, location});
+    const donato = await Donator.findByIdAndUpdate(donatorId, {first_name, last_name, address, phone_no, donation_type, d_qty});
 
     res.status(201).json({
       "Updated": true
