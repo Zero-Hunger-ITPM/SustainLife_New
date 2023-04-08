@@ -12,6 +12,7 @@ const RegRestaurantRoutes = require("./routes/RegRestaurantRoutes");
 const OrderPaymentRoutes = require("./routes/OrderPaymentRoutes");
 const UserRoutes = require("./routes/UserRoutes");
 const DonatorRoutes = require("./routes/DonatorRoutes");
+const OrganRoutes = require("./routes/OrganRoutes");
 
 const app = express();
 dotenv.config();
@@ -58,6 +59,7 @@ app.use("/api/RegRestaurants", require("./routes/RegRestaurantRoutes"));
 app.use("/api/OrderPayments", require("./routes/OrderPaymentRoutes"));
 app.use("/api/AddUser", require("./routes/UserRoutes"));
 app.use("/api/AddDonator", require("./routes/DonatorRoutes"));
+app.use("/api/AddOrgan", require("./routes/OrganRoutes"));
 
 app.listen(PORT, () => {
     logger.info(`Server is running on PORT: ${PORT}`);
