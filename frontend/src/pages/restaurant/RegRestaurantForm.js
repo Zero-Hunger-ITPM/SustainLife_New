@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import swal from "sweetalert2";
+import "./Add.css";
 
-const  RegRestaurantForm = () => {
+function  RegRestaurantForm (){
   /*create states*/
   const [image, setImage] = useState("");
   const [restaurantName, setRestaurantName] = useState("");
@@ -15,9 +16,22 @@ const  RegRestaurantForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      setImage(event.target.result);
+    };
+
+    reader.readAsDataURL(file);
+  };
   
-  const saveRestaurant = async (e) => {
+  function saveRestaurant (e){
     e.preventDefault();
+    alert("Going to Add Restaurant");
+
     const restaurant = {
       image,
       restaurantName,
@@ -65,124 +79,102 @@ const  RegRestaurantForm = () => {
   };
 
   return (
-   
-    <form><label htmlFor="restaurant-image">Restaurant Image:</label>
-    <input
-      type="text"
-      id="restaurant-name"
-      name="restaurant-name"
-      value={image}
-      onChange={(event) => setImage(event.target.value)}
-      required
-    />
+      <div class="mainss"> 
+      <div class="wrapperss">
+      <div class="titless">
+         Add New Restaurant
+        </div>
+        <div class="forms" >
+          <div class="inputfieldss">
+              <label>Restaurant Image</label>
+              <input type="file" id="image" onChange={handleImageChange} required/>
+                               {image && (
+                                 <div>
+                                   <img src={image} alt="Selected" />
+                                  </div>
+                                )}
+              
+           </div>
+           <div class="inputfieldss">
+              <label>Restaurant Name</label>
+              <input type="text" class="inputss" value={restaurantName} required onChange={(e)=>{
+                 setRestaurantName(e.target.value);
+              }}/>
+           </div>
 
-      <label htmlFor="restaurant-name">Restaurant Name:</label>
-      <input
-        type="text"
-        id="restaurant-name"
-        name="restaurant-name"
-        value={restaurantName}
-        onChange={(event) => setRestaurantName(event.target.value)}
-        required
-      />
+           <div className="form-group row">
+                        <label for="type">Restaurant Category</label>
+                        <select className="form-control" onChange={(e)=>{
 
-      <label htmlFor="restaurant-address1">Address Line 1:</label>
-      <input
-        type="text"
-        id="restaurant-address1"
-        name="restaurant-address1"
-        value={addrLine1}
-        onChange={(event) => setAddrLine1(event.target.value)}
-        required
-      />
+                           setCategory(e.target.value);
 
-      <label htmlFor="restaurant-address2">Address Line 2:</label>
-      <input
-        type="text"
-        id="restaurant-address2"
-        name="restaurant-address2"
-        value={addrLine2}
-        onChange={(event) => setAddrLine2(event.target.value)}
-        required
-      />
+                           }}>
+                            <option value="Fast-Food">Fast Food</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Sea-Food">Sea Food</option>
+                            <option value="Cafe">Cafe</option>
+                            <option value="Food-Truck">Food Truck</option>
+                        </select>
 
-      <label htmlFor="restaurant-address3">Address Line 3:</label>
-      <input
-        type="text"
-        id="restaurant-address3"
-        name="restaurant-address3"
-        value={addrLine3}
-        onChange={(event) => setAddrLine3(event.target.value)}
-        required
-      />
+                    </div>
 
-      <label htmlFor="restaurant-city">City:</label>
-      <input
-        type="text"
-        id="restaurant-city"
-        name="restaurant-city"
-        value={city}
-        onChange={(event) => setCity(event.target.value)}
-        required
-      />
-
-      <label htmlFor="restaurant-phone">Telephone:</label>
-      <input
-        type="tel"
-        id="restaurant-phone"
-        name="restaurant-phone"
-        value={telephone}
-        onChange={(event) => setTelephone(event.target.value)}
-        required
-      />
-
-      <label htmlFor="restaurant-category">Restaurant Category:</label>
-      <select
-        id="restaurant-category"
-        name="restaurant-category"
-        value={category}
-        onChange={(event) => setCategory(event.target.value)}
-        required
-      >
-        <option value="">Select a category</option>
-        <option value="fast-food">Fast Food</option>
-        <option value="italian">Italian</option>
-        <option value="chinese">Chinese</option>
-        <option value="mexican">Mexican</option>
-      </select>
-
-      <label htmlFor="restaurant-email">Email:</label>
-      <input
-        type="email"
-        id="restaurant-email"
-        name="restaurant-email"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
-        required
-      />
-
-      <label htmlFor="password">Password:</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        value={password}
-        onChange={(event) => setPassword(event.target.value)}
-        required
-      />
-
-      <label htmlFor="confirm-password">Confirm Password:</label>
-      <input
-        type="password"
-        id="confirm-password"
-        name="confirm-password"
-        value={confirmpassword}
-        onChange={(event) => setConfirmPassword(event.target.value)}
-        required
-      />
-
-      <button type="submit"  onClick={saveRestaurant}>Submit</button>
-    </form>
+           <div class="inputfieldss">
+              <label> Address Line 1</label>
+              <input type="text" class="inputss" value={addrLine1} required onChange={(e)=>{
+                 setAddrLine1(e.target.value);
+              }}/>
+           </div>
+           <div class="inputfieldss">
+              <label>Address Line 2</label>
+              <input type="text" class="inputss"value={addrLine2} required onChange={(e)=>{
+                    setAddrLine2(e.target.value);
+              }}/>
+           </div>
+           <div class="inputfieldss">
+              <label> Address Line 3</label>
+              <input type="text" class="inputss" value={addrLine3} required onChange={(e)=>{
+                    setAddrLine3(e.target.value);
+              }}/>
+           </div>
+           <div class="inputfieldss">
+              <label>City</label>
+              <input type="text" class="inputss" value={city} required onChange={(e)=>{
+                    setCity(e.target.value);
+              }}/>
+           </div>
+           <div class="inputfieldss">
+              <label>Email</label>
+              <input type="text" class="inputss" value={email} required onChange={(e)=>{
+                    setEmail(e.target.value);
+              }}/>
+           </div>
+           <div class="inputfieldss">
+              <label>Telephone</label>
+              <input type="number" class="inputss" value={telephone} required onChange={(e)=>{
+                    setTelephone(e.target.value);
+              }}/>
+           </div>
+           <div class="inputfieldss">
+              <label>Password</label>
+              <input type="password" class="inputss" value={password} required onChange={(e)=>{
+                    setPassword(e.target.value);
+              }}/>
+           </div> 
+           <div class="inputfieldss">
+              <label>Confirm Password</label>
+              <input type="password" class="inputss" value={confirmpassword} required onChange={(e)=>{
+                    setConfirmPassword(e.target.value);
+              }}/>
+           </div>                
+            <div class="modal-footers">
+              <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" onClick={saveRestaurant}> Add Restaurant </button>
+             
+          </div>
+        </div>
+  </div>
+      </div>
+    
   );
 };
 
