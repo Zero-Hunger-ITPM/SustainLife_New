@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from "../images/logo.png"
+import logo from "../images/logo2.png"
 
 const header = () => {
   return (
@@ -9,7 +9,7 @@ const header = () => {
     {/* <!--=============== HEADER ===============--> */}
     <header className="header" id="header">
         <nav className="nav container">
-            <a href="/" className="nav__logo"><img className="Home-logo" src={logo} alt="logo"/> SUSTAIN LIFE</a>
+            <a href="/" className="nav__logo"><img className="Home-logo" src={logo} alt="logo"/> SASTAIN LIFE</a>
 
             <div className="nav__menu" id="nav-menu">
                 <ul className="nav__list">
@@ -17,15 +17,15 @@ const header = () => {
                         <a href="#home" className="nav__link active-link">Home</a>
                     </li>
                     <li className="nav__item">
-                        <a href="#about" className="nav__link" >About us</a>
+                        <a href="#about" className="nav__link">About us</a>
                     </li>
                     <li className="nav__item">
-                        <a href="#services" className="nav__link">Services</a>
+                        <a href="#blog" className="nav__link">Blog</a>
                     </li>
+                   
                     <li className="nav__item">
                         <a href="#contact" className="nav__link">Contact us</a>
                     </li>
-
                     <i className='bx bx-toggle-left change-theme' id="theme-button"></i>
                 </ul>
             </div>

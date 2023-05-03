@@ -6,9 +6,9 @@
   /*========== Colors ==========*/
   --hue: 45;
   --sat: 98%;
-  --first-color: hsl(var(--hue), var(--sat), 60%);
-  --first-color-light: hsl(var(--hue), var(--sat), 85%);
-  --first-color-lighten: hsl(var(--hue), var(--sat), 80%);
+  --first-color: #7286D3;
+  --first-color-light: #7286D3;
+  --first-color-lighten: #7286D3;
   --first-color-alt: hsl(var(--hue), var(--sat), 53%);
   --title-color: hsl(var(--hue), 4%, 15%);
   --text-color: hsl(var(--hue), 4%, 35%);
@@ -173,6 +173,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+
 }
 
 @media screen and (max-width: 767px) {
@@ -244,7 +245,7 @@ a:hover {
 
 .home__title {
   font-size: var(--biggest-font-size);
-  font-size: 44px;
+  font-size: 70px;
   font-weight: var(--font-bold);
   margin-bottom: var(--mb-0-75);
 }
@@ -255,61 +256,59 @@ a:hover {
 
 /*=============== BUTTONS ===============*/
 .button {
-  display: inline-block;
-  background-color: #7286D3;
-  color: #1A1A1A;
-  padding: .75rem 1.5rem;
-  border-radius: 3rem;
-  font-weight: var(--font-semi-bold);
-  transition: .3s;
-}
-
-
-.button-34 {
-  background-color: #7286D3;
-  border-radius: 3rem;
-  box-sizing: border-box;
-  color: #1A1A1A;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: lighter;
-  display: inline-block;
-  line-height: 35px;
-  opacity: 1;
-  outline: 0 solid transparent;
-  padding: 8px 18px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: fit-content;
-  word-break: break-word;
-  border: 0;
-}
-
-
-.button-34:hover {
-  background-color: #7286D3;
-  border-color: black;
-  border-radius: 3rem;
-  box-sizing: border-box;
-  color: white;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: 500;
-  display: inline-block;
-  line-height: 35px;
-  opacity: 1;
-  outline: 0 solid transparent;
-  padding: 8px 18px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: fit-content;
-  word-break: break-word;
-  border: 0;
-}
-
-
+    display: inline-block;
+    background-color: var(--first-color);
+    color: #1A1A1A;
+    padding: .75rem 1.5rem;
+    border-radius: 3rem;
+    font-weight: var(--font-semi-bold);
+    transition: .3s;
+  }
+  
+  
+  .button-34 {
+    background-color: var(--first-color);
+    border-radius: 3rem;
+    box-sizing: border-box;
+    color: #1A1A1A;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: lighter;
+    display: inline-block;
+    line-height: 35px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+  }
+  
+  
+  .button-34:hover {
+    background-color: #7286D3;
+    border-color: black;
+    border-radius: 3rem;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    display: inline-block;
+    line-height: 35px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+  }
 .input-01 {
   width: 100%;
   border: 2px solid #aaa;
@@ -338,7 +337,7 @@ a:hover {
 }
 
 .button:hover {
-  background-color: #8EA7E9;
+  background-color: #7286D3;
 }
 
 .button__header {
@@ -581,7 +580,8 @@ a:hover {
     grid-template-columns: repeat(2, 1fr);
   }
   .home__img {
-    order: 1;
+    order: 2;
+    
   }
   .home__container,
   .about__container,
@@ -678,4 +678,47 @@ a:hover {
   .scrollup {
     right: 2rem;
   }
+
+
+  
+/*=============== About ===============*/
+.about__container {
+  padding-bottom: 3rem;
+  margin-left: auto;
+}
+
+.about__description {
+  text-align: left;
+  margin-left: auto;
+}
+
+.about__content {
+  row-gap: .75rem;
+  margin-left: auto;
+
+}
+
+.about__address {
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+
+}
+
+.about__information {
+  font-weight: initial;
+  color: var(--text-color);
+}
+.about__container {
+  gap: 2.5rem;
+}
+.Home-container {
+  max-width: 1020px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.about__data {
+  text-align: center;
+}
+
 }
