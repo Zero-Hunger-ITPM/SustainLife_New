@@ -14,15 +14,15 @@ const footer = () => {
                         <ul className="footer__links">
                             <li><a href="/RestaurantForm" className="footer__link">Help for Food wastage </a></li>
                             <li><a href="/ProductForm" className="footer__link">Add Products </a></li>
-                            <li><a href="#" className="footer__link">Blog</a></li>
+                            <li><a href="/RestaurantHome" className="footer__link">Blog</a></li>
                         </ul>
                     </div>
 
                     <div className="footer__content">
                         <h3 className="footer__title">Our Services</h3>
                         <ul className="footer__links">
-                            <li><a href="#" className="footer__link">Donate food </a></li>
-                            <li><a href="#" className="footer__link">Help for food wastage</a></li>
+                            <li><a href="/FoodItemDetails" className="footer__link">Donate food </a></li>
+                            <li><a href="/UpdateProducts" className="footer__link">Help for food wastage</a></li>
                             <li><a href="#" className="footer__link">Food exchange</a></li>
                             <li><a href="#" className="footer__link">Help with knowldge</a></li>
                         </ul>
