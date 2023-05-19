@@ -19,6 +19,11 @@ const header = () => {
                     <li className="nav__item">
                         <a href="#about" className="nav__link">About us</a>
                     </li>
+
+                    <li className="nav__item">
+                        <a href="/RestaurantHomenew" className="nav__link">Foods</a>
+                    </li>
+
                     <li className="nav__item">
                         <a href="#blog" className="nav__link">Blog</a>
                     </li>
