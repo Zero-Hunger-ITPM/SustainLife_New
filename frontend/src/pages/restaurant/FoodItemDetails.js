@@ -58,7 +58,7 @@ function FoodItemDetails(){
 		<div class="postcard__preview-txt">Restaurant:  {article.restaurant}</div>
 		<div class="postcard__preview-txt">Location:  {article.location}</div>
 
-           <button type="button" class="btns"><Link to={`/ApplyVacancy/`} > Buy Now </Link></button><br></br>
+           <button type="button" class="btns"><Link to={`/Payment/`} > Buy Now </Link></button><br></br>
 		   <button type="button" class="btns">Add to Cart</button> 
 	</div>
     </article>

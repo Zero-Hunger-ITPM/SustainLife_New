@@ -12,11 +12,11 @@ const ExchangeItemSchema = new mongoose.Schema(
     },
 
     exchangeItemLocation: {
-      type: Number,
+      type: String,
       
     },
 
-    exchangeItemContactno: {
+    exchangeItemContactNo: {
       type: String,
     },
 
