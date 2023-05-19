@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {Link,useParams} from "react-router-dom";
 import swal from "sweetalert2";
 import "./Add.css";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 function AddProductsForm (){
   /*create states*/
@@ -74,6 +77,8 @@ function AddProductsForm (){
   };
 
   return (
+    <div><Header/>
+    
     <div class="mains"> 
     <div class="wrapperss">
     <div class="titless">
@@ -139,11 +144,13 @@ function AddProductsForm (){
             }}/>
          </div>                
           <div class="modal-footers">
-            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" onClick={saveProduct}> Add Product </button>
+            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" onClick={saveProduct}> <Link to={`/ResAdmin/`} >Add Product </Link></button>
            
         </div>
       </div>
 </div>
+    </div>
+    <Footer/>
     </div>
   );
 };
