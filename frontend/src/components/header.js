@@ -19,18 +19,20 @@ const header = () => {
                     <li className="nav__item">
                         <a href="#about" className="nav__link">About us</a>
                     </li>
-
                     <li className="nav__item">
-                        <a href="/RestaurantHomenew" className="nav__link">Foods</a>
+                        <a href="#contact" className="nav__link">Contact us</a>
+                    </li>
+                    <li className="nav__item">
+                        <a href="/FoodItemDetails" className="nav__link">Sale Food Items</a>
                     </li>
 
                     <li className="nav__item">
                         <a href="#blog" className="nav__link">Blog</a>
                     </li>
-                   
                     <li className="nav__item">
-                        <a href="#contact" className="nav__link">Contact us</a>
+                        <a href="/" className="nav__link">Food Exchange</a>
                     </li>
+                    
                     <i className='bx bx-toggle-left change-theme' id="theme-button"></i>
                 </ul>
             </div>
@@ -39,7 +41,7 @@ const header = () => {
                 <i className='bx bx-grid-alt'></i>
             </div>
 
-            <a href="/signin" className="button button__header">Sign In</a>
+            <a href="/" className="button button__header">Sign In</a>
         </nav>
     </header>
     
