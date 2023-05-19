@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import axios from "axios";
 import react,{useEffect} from "react";
 import {Link,useParams} from "react-router-dom";
+import React,{useState} from "react";
+import axios from "axios";
 import swal from "sweetalert2";
 import "./Add.css";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 function UpdateProducts(){
 
@@ -46,22 +48,22 @@ function UpdateProducts(){
         location,
    }
 
-   
    axios.put(`http://localhost:8000/api/AddProducts/${id}`,newProduct).then(()=>{
 
     }).catch((err)=>{
       alert(err)
       console.log(err);
-    })
-    swal({
-      title: "Product is Successfully Updated.",
+    });
+    swal.fire({
+      title: "Product Updated Successfully !!.",
       icon: "success",
       confirmButtonText: "OK",
         }).then(function () {
             // Redirect the user
             window.location.href = "";
           });
-    
+   
+
 }
    useEffect(() => {
     axios.get(`http://localhost:8000/api/AddProducts/${id}`).then(res => {
@@ -79,10 +81,12 @@ function UpdateProducts(){
     }, []) 
 
  return(  
+   <div>
+      <Header/>
     <div class="mains"> 
     <div class="wrapperss">
     <div class="titless">
-       Add New Products
+      Update Product
       </div>
       <div class="forms" >
         <div class="inputfieldss">
@@ -144,11 +148,13 @@ function UpdateProducts(){
             }}/>
          </div>                
           <div class="modal-footers">
-            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" onClick={sendproductData}> Add Product </button>
+            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" onClick={sendproductData}>  <Link to={`/ResAdmin/`} >Update </Link></button>
            
         </div>
       </div>
 </div>
+    </div>
+    <Footer/>
     </div>
     );
 }

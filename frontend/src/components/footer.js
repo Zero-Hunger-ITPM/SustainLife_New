@@ -19,8 +19,8 @@ const footer = () => {
                     <div className="footer__content">
                         <h3 className="footer__title">Our Services</h3>
                         <ul className="footer__links">
-                            <li><a href="/FoodItemDetails" className="footer__link">Donate food </a></li>
-                            <li><a href="/UpdateProducts" className="footer__link">Help for food wastage</a></li>
+                            <li><a href="/ResAdmin" className="footer__link">Donate food </a></li>
+                            <li><a href="/FoodItemDetails" className="footer__link">Help for food wastage</a></li>
                             <li><a href="#" className="footer__link">Food exchange</a></li>
                             <li><a href="#" className="footer__link">Help with knowldge</a></li>
                         </ul>
@@ -51,7 +51,7 @@ const footer = () => {
                     </div>
                 </div>
 
-                <p className="footer__copy">&#169; malagiya_aththo_code. All right reserved</p>
+                <p className="footer__copy">&#169; Nero Technologies | All Rights Reserved.</p>
             </footer>
 
             {/* <!--=============== SCROLL UP ===============--> */}
