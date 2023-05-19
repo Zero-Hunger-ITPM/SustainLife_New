@@ -11,12 +11,15 @@ const AddProductsRoutes = require("./routes/AddProductsRoutes");
 const RegRestaurantRoutes = require("./routes/RegRestaurantRoutes");
 const OrderPaymentRoutes = require("./routes/OrderPaymentRoutes");
 const UserRoutes = require("./routes/UserRoutes");
+const DonatorRoutes = require("./routes/DonatorRoutes");
+const OrganRoutes = require("./routes/OrganRoutes");
+const ExchangeItemRoutes = require("./routes/ExchangeItemRoutes");
 
 const app = express();
 dotenv.config();
 app.use(
   cors({
-    origin: "http://localhost:8000",
+    origin: "http://localhost:3000",
     credentials: true,
   })
 );
@@ -56,6 +59,9 @@ app.use("/api/AddProducts", require("./routes/AddProductsRoutes"));
 app.use("/api/RegRestaurants", require("./routes/RegRestaurantRoutes"));
 app.use("/api/OrderPayments", require("./routes/OrderPaymentRoutes"));
 app.use("/api/AddUser", require("./routes/UserRoutes"));
+app.use("/api/AddDonator", require("./routes/DonatorRoutes"));
+app.use("/api/AddOrgan", require("./routes/OrganRoutes"));
+app.use("/api/AddExchangeItem", require("./routes/ExchangeItemRoutes"));
 
 app.listen(PORT, () => {
     logger.info(`Server is running on PORT: ${PORT}`);
