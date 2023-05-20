@@ -13,13 +13,17 @@ import FoodItemDetails from "./pages/restaurant/FoodItemDetails";
 import UpdateProducts from "./pages/restaurant/UpdateProducts";
 import RestaurantHomeNew from "./pages/restaurant/RestaurantHomeNew";
 import FoodItemDetailsNew from "./pages/restaurant/FoodItemDetailsNew";
-import AdminPro from "./pages/restaurant/AdminPro";
-import AdminRes from "./pages/restaurant/AdminRes";
-import Login from "./pages/user/Login";
 
-/* Payment Page */
-import Payment from "./pages/restaurant/Payment";
 
+import UpdateOrganization from "./pages/donation/updateOrganization";
+
+import ExchangeFood from "./pages/self_employeed/exchnage_self_employeed";
+
+import Employee from "./pages/self_employeed/Addemployee";
+
+import AdminEmp from "./pages/self_employeed/AdminEmployee";
+
+import AdminExc from "./pages/self_employeed/AdminExchange";
 
 function App() {
 
@@ -37,11 +41,6 @@ function App() {
         <Route path='/UpdateProduct/:id' element={<UpdateProducts/>}/>
         <Route path='/RestaurantHomenew' element={<RestaurantHomeNew/>}/>
         <Route path='/FoodItemDetailsNew' element={<FoodItemDetailsNew/>}/>
-        <Route path='/Payment' element={<Payment/>}/>
-        <Route path='/AdminPro' element={<AdminPro/>}/>
-        <Route path='/AdminRes' element={<AdminRes/>}/>
-        <Route path='/Login' element={<Login/>}/>
-      
 
         </Routes> 
     </Router>
