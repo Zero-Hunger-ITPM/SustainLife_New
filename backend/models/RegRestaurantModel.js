@@ -13,7 +13,7 @@ const RegRestaurantSchema = new Schema({
   addrLine3: String,
   city: String,
   telephone: String,
-  category: String,
+  //category: String,
   email: String,
   password: String,
   confirmpassword: String
