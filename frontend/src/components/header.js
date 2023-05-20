@@ -24,7 +24,7 @@ const header = () => {
                         <a href="#contact" className="nav__link">Contact us</a>
                     </li>
                     <li className="nav__item">
-                        <a href="/FoodItemDetails" className="nav__link">Sale Food Items</a>
+                        <a href="/RestaurantHomeNew" className="nav__link">Food Sale</a>
                     </li>
 
                     <li className="nav__item">
@@ -41,9 +41,8 @@ const header = () => {
             <div className="nav__toggle" id="nav-toggle">
                 <i className='bx bx-grid-alt'></i>
             </div>
-
-
         </nav>
+
     </header>
     
   </div>
