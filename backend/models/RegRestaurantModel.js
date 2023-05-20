@@ -16,7 +16,7 @@ const RegRestaurantSchema = new Schema({
   //category: String,
   email: String,
   password: String,
-  confirmpassword: String
+  //confirmpassword: String
 });
 
 const RegRestaurantModel = mongoose.model("RegRestaurantModel", RegRestaurantSchema);
