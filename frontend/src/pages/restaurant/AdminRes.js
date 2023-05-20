@@ -5,6 +5,7 @@ import swal from "sweetalert2";
 import "./Admin.css";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
+import { exportToCSV } from "../utils";
 
 function Admin(){
     const [restaurant, setRestaurant] = useState([])
@@ -30,28 +31,6 @@ function Admin(){
                     });
             });
           };
-
-     //report generation
-     const handleDownloadFile = () => {
-        fetch("http://localhost:3000/RestaurantForm")
-            .then((res) => res.json())
-            .then((data) => {
-                const csvData = [
-                    ["Image", "Restaurant Name", "Address", "City", "Telephone", "Category","Email" ],
-                    ...data.map((rest) => [rest.image, rest.restaurantName, rest.addrLine1, rest.city, rest.telephone, rest.category,rest.email])
-                ];
-                const csvContent = "data:text/csv;charset=utf-8," + csvData.map(e => e.join(",")).join("\n");
-                const link = document.createElement("a");
-                link.href = encodeURI(csvContent);
-                link.setAttribute("download", "donator_list.csv");
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            })
-            .catch((err) => {
-                console.log(err.message);
-            });
-    };
 
 
     return(
@@ -127,14 +106,22 @@ function Admin(){
 
            <div className="row-2">
                     <div className="col"style={{ textAlign: "right",float:"left"  }}>
-                            <Link to="/dashboard" className="btn btn-danger">Back</Link>
+                            <Link to="/RestaurantHomeNew" className="btn btn-danger">Back</Link><br></br>
                         </div>
-                        <div className="col" style={{ textAlign: "right" ,float:"right" }}>
-                            <button className="btn btn-primary" onClick={handleDownloadFile}>
-                                Download Detail file
-                            </button>
-                        </div>
-                       
+                        <button
+            onClick={() => {
+                const restaurants = restaurant.map(res => {
+                    let res1 = res;
+                    delete res1.image;
+                    return res1;
+                })
+
+                exportToCSV(restaurants, "Restaurants");
+            }}
+            type="button"
+          >
+            Download Report
+          </button>
                     </div>
            
        </div> 
