@@ -41,6 +41,7 @@ function App() {
         <Route path='/UpdateProduct/:id' element={<UpdateProducts/>}/>
         <Route path='/RestaurantHomenew' element={<RestaurantHomeNew/>}/>
         <Route path='/FoodItemDetailsNew' element={<FoodItemDetailsNew/>}/>
+        
 
         </Routes> 
     </Router>
