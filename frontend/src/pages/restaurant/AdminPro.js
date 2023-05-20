@@ -5,6 +5,7 @@ import swal from "sweetalert2";
 import "./Admin.css";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
+import { exportToCSV } from "../utils";
 
 function Admin(){
     const [product, setProduct] = useState([])
@@ -105,6 +106,25 @@ function Admin(){
                   
                </tbody>
            </table>
+           <div className="row-2">
+                    <div className="col"style={{ textAlign: "right",float:"left"  }}>
+                            <Link to="/RestaurantHomeNew" className="btn btn-danger">Back</Link><br></br>
+                        </div>
+                        <button
+            onClick={() => {
+                const products = product.map(res => {
+                    let res1 = res;
+                    delete res1.image;
+                    return res1;
+                })
+
+                exportToCSV(products, "Products");
+            }}
+            type="button"
+          >
+            Download Report
+          </button>
+                    </div>
        </div> 
    </div>   
 </div> 
