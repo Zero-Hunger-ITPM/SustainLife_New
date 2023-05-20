@@ -1,0 +1,48 @@
+.content {
+    width: 770px;;
+    margin: auto;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    
+  
+  }
+  .ui button blue{
+  background-color: yellow;
+  position: center;
+  }
+  .ui main{
+  background-color: grey;
+  }
+  .img{
+  text-align: center;
+  
+  }
+  .field{
+    margin-top: 3%;
+    align-items: center;
+  }
+  .input{
+  margin-left: 2%;
+    align-items: center;
+    border-radius: 2%;
+  }
+  /*=============== HOME ===============*/
+.home__container {
+    /* row-gap: 3rem; */
+    top: 0;
+  }
+  
+  .home__title {
+    font-size: var(--biggest-font-size);
+    font-size: 70px;
+    font-weight: var(--font-bold);
+    margin-top: var(--mb-0-75);
+  }
+  
+  .home__description {
+    margin-top: var(--mb-2);
+  }
