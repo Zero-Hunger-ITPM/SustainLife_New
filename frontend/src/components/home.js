@@ -4,8 +4,9 @@ import "./home.css"
 
 // import Header from './header'
 import Footer from './footer'
-import Cover from './cover'
 import Header from './header'
+import Cover from './cover'
+
 import ContactUs from './contactUs'
 import AboutUs from './aboutUs'
 

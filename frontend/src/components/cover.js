@@ -18,7 +18,7 @@ const cover = () => {
                     <h1 className='home__title'>Sustain Life</h1>
                 <h2 className='home_description'> This is a solution for Zero Hungry.</h2>
                 <div className="contact__content">
-                                <a href="#" className="button">Donate Now</a>
+                                <a href="/Donation" className="button">Donate Now</a>
                             </div>
                 <clipPath id="clip0">
                 <rect width="312" height="236" top="20%" fill="white"/>
