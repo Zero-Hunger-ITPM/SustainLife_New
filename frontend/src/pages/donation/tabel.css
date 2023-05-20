@@ -1,0 +1,18 @@
+
+.card-body{
+    background: #ecf0f3;
+    padding: 50px 50px;
+    
+  
+}
+.table-responsive{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button{
+    display: inline-block;
+}
+.button.left{
+    align-items: left;
+}
