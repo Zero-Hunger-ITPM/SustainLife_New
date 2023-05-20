@@ -128,7 +128,7 @@ function RegRestaurantForm (){
       <div class="forms" >
         <div class="inputfieldss">
             <label>Restaurant Image</label>
-            <input type="file" id="image" onChange={handleImageChange} required/>
+            <input type="file" id="image" onChange={handleImageChange} />
                              {image && (
                                <div>
                                  <img src={image} alt="Selected" />
