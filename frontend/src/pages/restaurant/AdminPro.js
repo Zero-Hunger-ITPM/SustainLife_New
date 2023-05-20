@@ -26,7 +26,7 @@ function Admin(){
                 confirmButtonText: "OK",
                   }).then(function () {
                       // Redirect the user
-                      window.location.href = "/ResAdmin";
+                      window.location.href = "/AdminPro";
                     });
             });
           };
@@ -34,7 +34,7 @@ function Admin(){
     return(
         <div>
             <Header/>
-         <div class="h1 text-center text-dark" id="pageHeaderTitle">Restaurant Admin Dashboard</div>
+         <div class="h1 text-center text-dark" id="pageHeaderTitle">Product Admin Dashboard</div>
 
          <div class="card shodow mb-4">
            <div class="card-header py-3">

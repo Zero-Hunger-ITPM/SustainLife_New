@@ -59,7 +59,7 @@ function FoodItemDetails(){
 		<div class="postcard__preview-txt">Location:  {article.location}</div>
 
            <button type="button" class="btns"><Link to={`/Payment/`} > Buy Now </Link></button><br></br>
-		   <button type="button" class="btns">Add to Cart</button> 
+		   <button type="button" class="btns"><Link to={"https://www.google.com/maps/@7.857685,80.70625,7z?authuser=0"} >Location</Link></button> 
 	</div>
     </article>
    ))}

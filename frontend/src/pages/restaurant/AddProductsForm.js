@@ -144,7 +144,7 @@ function AddProductsForm (){
             }}/>
          </div>                
           <div class="modal-footers">
-            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" onClick={saveProduct}> <Link to={`/ResAdmin/`} >Add Product </Link></button>
+            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" onClick={saveProduct}> <Link to={`/AdminPro/`} >Add Product </Link></button>
            
         </div>
       </div>

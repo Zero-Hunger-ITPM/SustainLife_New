@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from "../images/logo2.png"
+import {Link} from "react-router-dom";
 
 const header = () => {
   return (
@@ -23,7 +24,7 @@ const header = () => {
                         <a href="#contact" className="nav__link">Contact us</a>
                     </li>
                     <li className="nav__item">
-                        <a href="/RestaurantHomenew" className="nav__link">Sale Food Items</a>
+
                     </li>
 
                     <li className="nav__item">
@@ -40,9 +41,8 @@ const header = () => {
             <div className="nav__toggle" id="nav-toggle">
                 <i className='bx bx-grid-alt'></i>
             </div>
-
-            <a href="/" className="button button__header">Sign In</a>
         </nav>
+
     </header>
     
   </div>
