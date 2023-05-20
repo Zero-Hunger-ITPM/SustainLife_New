@@ -6,6 +6,7 @@ import "./Add.css";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 
+
 function AddProductsForm (){
   /*create states*/
   const [image, setImage] = useState("");
@@ -18,6 +19,7 @@ function AddProductsForm (){
   const [restaurant, setRestaurant] = useState("");
   const [location, setLocation] = useState("");
   const [formErrors, setFormErrors] = useState({});
+  const [errors, setErrors] = useState([]);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -33,7 +35,27 @@ function AddProductsForm (){
   function saveProduct(e){
     e.preventDefault();
     alert("Going to add New Product");
+    let hasErrors = false;
+
+    const nameModel = /^[a-zA-Z]+$/
+    const locationModel = /^[a-zA-Z]+$/
   
+    if (productName.length <= 0 && !nameModel.test(productName)) {
+      hasErrors = true;
+      setErrors((prev) => [...prev, "nameError"]);
+    } 
+
+    if (location.length <= 0 && !locationModel.test(location)) {
+      hasErrors = true;
+      setErrors((prev) => [...prev, "locationError"]);
+    } 
+
+    if (restaurant.length <= 0 && !nameModel.test(restaurant)) {
+      hasErrors = true;
+      setErrors((prev) => [...prev, "nameError"]);
+    } 
+
+
     const product = {
       image,
       productName,
@@ -100,6 +122,9 @@ function AddProductsForm (){
             <input type="text" class="inputss" value={productName} required onChange={(e)=>{
                setProductName(e.target.value);
             }}/>
+            {errors.includes("nameError") && (
+          <p class="alert-txt">Name is Required </p>
+        )}
          </div>
          <div class="inputfieldss">
             <label>Regular Price</label>
@@ -136,15 +161,21 @@ function AddProductsForm (){
             <input type="text" class="inputss" value={restaurant} required onChange={(e)=>{
                   setRestaurant(e.target.value);
             }}/>
+            {errors.includes("nameError") && (
+          <p class="alert-txt">Restaurant is Required </p>
+        )}
          </div> 
          <div class="inputfieldss">
             <label>Location</label>
             <input type="text" class="inputss" value={location} required onChange={(e)=>{
                   setLocation(e.target.value);
             }}/>
+            {errors.includes("locationError") && (
+          <p class="alert-txt">Location is Required </p>
+        )}
          </div>                
           <div class="modal-footers">
-            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" onClick={saveProduct}> <Link to={`/AdminPro/`} >Add Product </Link></button>
+            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" onClick={saveProduct}> <Link to={``} >Add Product </Link></button>
            
         </div>
       </div>
