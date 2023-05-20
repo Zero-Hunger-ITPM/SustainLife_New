@@ -60,7 +60,7 @@ function UpdateProducts(){
       confirmButtonText: "OK",
         }).then(function () {
             // Redirect the user
-            window.location.href = "";
+            window.location.href = "/AdminPro";
           });
    
 
@@ -148,7 +148,7 @@ function UpdateProducts(){
             }}/>
          </div>                
           <div class="modal-footers">
-            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" onClick={sendproductData}>  <Link to={`/ResAdmin/`} >Update </Link></button>
+            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" onClick={sendproductData}>  <Link to={`/AdminPro/`} >Update </Link></button>
            
         </div>
       </div>

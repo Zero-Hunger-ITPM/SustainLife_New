@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from "../images/logo2.png"
+import {Link} from "react-router-dom";
 
 const header = () => {
   return (
@@ -39,7 +40,7 @@ const header = () => {
                 <i className='bx bx-grid-alt'></i>
             </div>
 
-            <a href="/signin" className="button button__header">Sign In</a>
+            <a href="/signin" className="button button__header"> <Link to={`/Login/`} >Login </Link></a>
         </nav>
     </header>
     
