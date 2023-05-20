@@ -40,7 +40,8 @@ export default function Donation(){
             address,
             phone_no,
             donation_type,
-            d_qty
+            d_qty,
+            location
         };
         if (
             donate.first_name.length <= 0 ||
@@ -48,7 +49,8 @@ export default function Donation(){
             donate.address.length <= 0 ||
             donate.phone_no.length <= 0 ||
             donate.donation_type.length <= 0 ||
-            donate.d_qty.length <= 0 
+            donate.d_qty.length <= 0 ||
+            donate.location.length<= 0 
          
         ) {
           //setErrors(true);
@@ -122,6 +124,12 @@ export default function Donation(){
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter qty"
              value={d_qty} required onChange={(e)=>{
                 setd_qty(e.target.value);}}/>
+            </div>
+            <div class="form-group">
+            <label for="exampleInputEmail1">Location</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter location"
+             value={location} required onChange={(e)=>{
+                setlocation(e.target.value);}}/>
             </div>
             
            <div></div>
