@@ -10,10 +10,10 @@ const regRestaurant= async (req, res) => {
     addrLine3,
     city,
     telephone,
-    category,
+    //category,
     email,
     password,
-    confirmpassword,
+    //confirmpassword,
   } = req.body;
 
   console.log(req.body);
@@ -28,10 +28,10 @@ const regRestaurant= async (req, res) => {
     addrLine3,
     city,
     telephone,
-    category,
+    //category,
     email,
     password: hash,
-    confirmpassword,
+    //confirmpassword,
    
   });
  
@@ -75,9 +75,9 @@ const updateRestaurant = async (req, res) => {
       return res.status(404).json("There is a no Restaurant");
     }
 
-    const {image,restaurantName,addrLine1,addrLine2,addrLine3,city,telephone,category,email,password,confirmpassword} = req.body;
+    const {image,restaurantName,addrLine1,addrLine2,addrLine3,city,telephone,email,password} = req.body;
     
-    const restauran = await Restaurant.findByIdAndUpdate(restaurantId, {image,restaurantName,addrLine1,addrLine2,addrLine3,city,telephone,category,email,password,confirmpassword});
+    const restauran = await Restaurant.findByIdAndUpdate(restaurantId, {image,restaurantName,addrLine1,addrLine2,addrLine3,city,telephone,email,password});
 
     res.status(201).json({
       "Updated": true

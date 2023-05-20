@@ -1,65 +1,97 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const router = express.Router();
-const cors = require("cors");
-const bodyParser = require("body-parser");
-let ExchangeItem = require("../models/ExchangeItemModel");
+const ExchangeItem = require("../models/ExchangeItemModel");
 
+const addexchangeItem = (req, res) => {
+  const {
+    exchangeItemName,
+    exchangeItemPicture,
+    exchangeItemLocation,
+    exchangeItemContactNo,
+  } = req.body;
 
+  console.log(req.body);
 
-//post method 
-
-router.post('/add', (req,res)=>{
-  let newExchangeItem = new ExchangeItem(req.body);
-  newExchangeItem.save((err)=>{
-      if(err){
-          return res.status(400).json({
-              error:err
-          });
-      }
-      return res.status(200).json({
-          success:"new ExchangeItem saved sucessfully"
-      });
+  const newExchangeItem = new ExchangeItem({
+    exchangeItemName,
+    exchangeItemPicture,
+    exchangeItemLocation,
+    exchangeItemContactNo,
   });
-})
 
-
-//get method to retriew data
-
-router.get('/get', (req,res)=>{
-    ExchangeItem.find().exec((err,ExchangeItem)=>{
-        console.log(ExchangeItem)
-       if(err){
-           return res.status(400).json({
-               error:err
-           });
-       }return res.status(200).json({
-           success:"true",
-           Device
-       });
+  newExchangeItem
+    .save()
+    .then((createdExchangeItem,) => {
+      res.status(200).json(createdExchangeItem);
+    })
+    .catch((err) => {
+      console.log(err);
     });
-   
-   });
-  
-  
-  //GET ONE Device By ID (http://localhost:8080/ExchangeItem/<userID>)
-  
-  router.route("/get/:id").get(async(req,res) => { // get data from frontend via request. async function is used to increase the performance 
-      let userId =  req.params.id; //fetch the id parameter in url
-  
-      const ExchangeItem = await ExchangeItem.findById(userId) //pass two parameters(userid,object that store seller data) and find user by id and update relevent data
-      .then((ExchangeItem) => {
-          res.status(200).send({status : "Item data fetched", Device}) //if find success, display success message
-      }).catch((err) => {
-          console.log(err);
-          res.status(500).send({status: "Error with find data"}); //if not display error message
-      })
-  
-  })
-  
+};
 
+const getexchangeItems = async (req, res) => {
+  try {
+    const exchangeItem = await ExchangeItem.find();
 
+    res.status(200).json(exchangeItem);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+};
 
+const getsingleexchangeItem = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const exchangeItem = await ExchangeItem.findById(id);
+    res.status(200).json(exchangeItem);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+};
 
-module.exports = controller;
+const updateexchangeItem = async (req, res) => {
+  const exchangeItemId = req.params.id;
 
+  try {
+    const exchangeItem= await ExchangeItem.findById(exchangeItemId);
+
+    if(!exchangeItem){
+      return res.status(404).json("There is  no Items");
+    }
+
+    const {exchangeItemName,exchangeItemPicture,exchangeItemLocation,exchangeItemContactNo} = req.body;
+    
+    const exchangeIte = await ExchangeItem.findByIdAndUpdate(exchangeItemId, {exchangeItemName,exchangeItemPicture,exchangeItemLocation,exchangeItemContactNo});
+
+    res.status(201).json({
+      "Updated": true
+    })
+
+  } catch (error) { 
+    res.status(400).json(error.message);
+  }
+}
+
+const deleteexchangeItem = async (req, res) => {
+  const exchangeItemId = req.params.id;
+
+  try {
+    const exchangeItem = await ExchangeItem.findById(exchangeItemId);
+
+    if(!exchangeItem){
+      return res.status(404).json("There is no Items");
+    }
+
+    const deleteexchangeItem = await ExchangeItem.findByIdAndDelete(exchangeItem);
+    res.status(200).json(deleteexchangeItem);
+    
+  } catch (error) { 
+    res.status(400).json(error.message);
+  }
+}
+
+module.exports = {
+  addexchangeItem,
+  getexchangeItems,
+  getsingleexchangeItem,
+  updateexchangeItem,
+  deleteexchangeItem,
+};
