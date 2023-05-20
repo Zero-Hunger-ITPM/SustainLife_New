@@ -20,7 +20,7 @@ const footer = () => {
                         <h3 className="footer__title">Our Services</h3>
                         <ul className="footer__links">
                             <li><a href="/ResAdmin" className="footer__link">Donate food </a></li>
-                            <li><a href="/RestaurantHomenew" className="footer__link">Help for food wastage</a></li>
+                            <li><a href="/FoodItemDetailsNew" className="footer__link">Help for food wastage</a></li>
                             <li><a href="#" className="footer__link">Food exchange</a></li>
                             <li><a href="#" className="footer__link">Help with knowldge</a></li>
                         </ul>

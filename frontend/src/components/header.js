@@ -23,14 +23,14 @@ const header = () => {
                         <a href="#contact" className="nav__link">Contact us</a>
                     </li>
                     <li className="nav__item">
-                        <a href="/FoodItemDetails" className="nav__link">Sale Food Items</a>
+                        <a href="/RestaurantHomenew" className="nav__link">Sale Food Items</a>
                     </li>
 
                     <li className="nav__item">
                         <a href="#blog" className="nav__link">Blog</a>
                     </li>
                     <li className="nav__item">
-                        <a href="/" className="nav__link">Food Exchange</a>
+                        <a href="/ExchangeFood" className="nav__link">Food Exchange</a>
                     </li>
                     
                     <i className='bx bx-toggle-left change-theme' id="theme-button"></i>

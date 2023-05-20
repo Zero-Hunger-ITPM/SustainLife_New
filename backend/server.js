@@ -14,6 +14,8 @@ const UserRoutes = require("./routes/UserRoutes");
 const DonatorRoutes = require("./routes/DonatorRoutes");
 const OrganRoutes = require("./routes/OrganRoutes");
 const ExchangeItemRoutes = require("./routes/ExchangeItemRoutes");
+const SelfEmployeeRoutes =require("./routes/SelfEmployeeRoutes");
+
 
 const app = express();
 dotenv.config();
@@ -62,6 +64,7 @@ app.use("/api/AddUser", require("./routes/UserRoutes"));
 app.use("/api/AddDonator", require("./routes/DonatorRoutes"));
 app.use("/api/AddOrgan", require("./routes/OrganRoutes"));
 app.use("/api/AddExchangeItem", require("./routes/ExchangeItemRoutes"));
+app.use("/api/AddEmployee", require("./routes/SelfEmployeeRoutes"));
 
 app.listen(PORT, () => {
     logger.info(`Server is running on PORT: ${PORT}`);
