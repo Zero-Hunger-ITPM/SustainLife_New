@@ -70,7 +70,7 @@ export default function Donation(){
             phone_no,
             donation_type,
             d_qty,
-          
+
         };
         if (
             donate.first_name.length <= 0 ||
@@ -78,8 +78,13 @@ export default function Donation(){
             donate.address.length <= 0 ||
             donate.phone_no.length <= 0 ||
             donate.donation_type.length <= 0 ||
-            donate.d_qty.length <= 0 
+// <<<<<<< Lalindu
+//             donate.d_qty.length <= 0 
             
+// 
+//             donate.d_qty.length <= 0 ||
+//             donate.location.length<= 0 
+
          
         ) {
           //setErrors(true);
@@ -170,6 +175,15 @@ export default function Donation(){
           <p class="alert-txt">Please Enter Valid Quantity</p>
         )}
             </div>
+
+//             <div class="form-group">
+//             <label for="exampleInputEmail1">Location</label>
+//             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter location"
+//              value={location} required onChange={(e)=>{
+//                 setlocation(e.target.value);}}/>
+//             </div>
+            
+
            <div></div>
             <button type="submit" class="btn btn-primary" onClick={saveDonation}>Submit</button>
            </div>
