@@ -18,7 +18,7 @@ const EmployeeSchema = new schema({
       ExchangeCategory: String,
       email: String,
       password: String,
-      confirmpassword: String
+      
 
 })
 

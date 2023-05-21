@@ -30,6 +30,11 @@ const footer = () => {
                             <li><a href="#" className="footer__link">Blog</a></li>
                             <li><a href="#" className="footer__link">Our mision</a></li>
                             <li><a href="#" className="footer__link">Get in touch</a></li>
+                            <li><a href="/AdminRes" className="footer__link">AdminRes</a></li>
+                            <li><a href="/AdminPro" className="footer__link">AdminPro</a></li>
+                            <li><a href="/AdminOrganization" className="footer__link">AdminOrganization</a></li>
+                            <li><a href="/AdminExc" className="footer__link">AdminExchange</a></li>
+                            <li><a href="/AdminEmp" className="footer__link">AdminEmployee</a></li>
                         </ul>
                     </div>
 

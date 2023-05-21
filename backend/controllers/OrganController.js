@@ -54,7 +54,7 @@ const getsingleOrgan = async (req, res) => {
 
 const updateOrgan = async (req, res) => {
   const organId = req.params.id;
-
+  console.log(organId);
   try {
     const organ = await Organ.findById(organId);
 

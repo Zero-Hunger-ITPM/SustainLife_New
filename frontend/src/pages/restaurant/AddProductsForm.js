@@ -128,19 +128,19 @@ function AddProductsForm (){
          </div>
          <div class="inputfieldss">
             <label>Regular Price</label>
-            <input type="text" class="inputss" value={regularPrice} required onChange={(e)=>{
+            <input type="number" class="inputss" value={regularPrice} required onChange={(e)=>{
                setRegularPrice(e.target.value);
             }}/>
          </div>
          <div class="inputfieldss">
             <label>Discount Rate</label>
-            <input type="text" class="inputss"value={discountRate} required onChange={(e)=>{
+            <input type="number" class="inputss"value={discountRate} required onChange={(e)=>{
                   setDiscountRate(e.target.value);
             }}/>
          </div>
          <div class="inputfieldss">
             <label>Discounted Price</label>
-            <input type="text" class="inputss" value={discountedPrice} required onChange={(e)=>{
+            <input type="number" class="inputss" value={discountedPrice} required onChange={(e)=>{
                   setDiscountedPrice(e.target.value);
             }}/>
          </div>

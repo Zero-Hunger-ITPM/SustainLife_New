@@ -28,13 +28,9 @@ const donatorSchema = new schema({
         type : Number,
         required: true
     },
-    location : {
-        type : String,
-        required: true
-    }
-
+   
 })
 
-const Donator = mongoose.model("Donation",donatorSchema)
+const Donator = mongoose.model("Donations",donatorSchema)
 
 module.exports = Donator;

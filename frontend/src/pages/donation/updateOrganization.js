@@ -14,9 +14,8 @@ function UpdateOrganization(){
    const [organization, setOrganization] = useState([]);
    const [organization_name, setorganization_name] = useState("");
    const [o_phone_no, seto_phone_no] = useState("");
-   const [address, setaddress] = useState("");
-   const [donation_type, setdonation_type] = useState("");
-   const [d_qty, setd_qty] = useState("");
+   const [o_donation_type, setdonation_type] = useState("");
+   const [o_qty, setd_qty] = useState("");
    const [location, setlocation] = useState("");
   
 
@@ -27,13 +26,12 @@ function UpdateOrganization(){
       const newOrganization = {
         organization_name,
         o_phone_no,
-        address,
-        donation_type,
-        d_qty,
+        o_donation_type,
+        o_qty,
         location
    }
-
-   axios.put(`http://localhost:8000/api/updateOrgan/${id}`,newOrganization).then(()=>{
+   console.log(id);
+   axios.put(`http://localhost:8000/api/AddOrgan/${id}`,newOrganization).then(()=>{
 
     }).catch((err)=>{
       alert(err)
@@ -54,9 +52,8 @@ function UpdateOrganization(){
     axios.get(`http://localhost:8000/api/AddOrgan/${id}`).then(res => {
         setorganization_name(res.data.organization_name);
         seto_phone_no(res.data.o_phone_no);
-        setaddress(res.data.address);
-        setdonation_type(res.data.donation_type);
-        setd_qty(res.data.d_qty);
+        setdonation_type(res.data.o_donation_type);
+        setd_qty(res.data.o_qty);
         setlocation(res.data.location);
         console.log(res.data);
         })		
@@ -73,31 +70,31 @@ function UpdateOrganization(){
       <div class="forms" >
       <div class="form-group">
             <label for="exampleInputEmail1">Organization name</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name"
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name"
             value={organization_name} required onChange={(e)=>{
                 setorganization_name(e.target.value);}}/>
             </div>
             <div class="form-group">
             <label for="exampleInputEmail1">Organization contact number</label>
-            <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email"
+            <input type="number" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email"
             value={o_phone_no} required onChange={(e)=>{
                 seto_phone_no(e.target.value);}}/>
             </div>
             <div class="form-group">
-            <label for="exampleInputEmail1">Organization address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter contact number"
-             value={address} required onChange={(e)=>{
-                setaddress(e.target.value);}}/>
+            <label for="exampleInputEmail1">Organization donation type</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" 
+            value={o_donation_type} required onChange={(e)=>{
+              setdonation_type(e.target.value);}}/>
             </div>
             <div class="form-group">
-            <label for="exampleInputEmail1">Organization donation type</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" 
-            value={d_qty} required onChange={(e)=>{
+            <label for="exampleInputEmail1">Organization donation quantity</label>
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" 
+            value={o_qty} required onChange={(e)=>{
                 setd_qty(e.target.value);}}/>
             </div>
             <div class="form-group">
             <label for="exampleInputEmail1">Organization location</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" 
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" 
             value={location} required onChange={(e)=>{
                 setlocation(e.target.value);}}/>
             </div>

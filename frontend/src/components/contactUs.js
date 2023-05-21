@@ -15,9 +15,9 @@ const contactUs = () => {
                             </div>
 
                             <ul className="contact__content grid">
-                                <li className="contact__address">Telephone: <span className="contact__information">999 - 888 - 777</span></li>
-                                <li className="contact__address">Email:  <span className="contact__information">delivery@email.com</span></li>
-                                <li className="contact__address">Location: <span className="contact__information">Lima - Peru</span></li>
+                                <li className="contact__address">Telephone: <span className="contact__information">0112567890</span></li>
+                                <li className="contact__address">Email:  <span className="contact__information">sustainlife@gmail.com</span></li>
+                                <li className="contact__address">Location: <span className="contact__information">Kaduwela Road - Malabe</span></li>
                             </ul>
 
                             <div className="contact__content">

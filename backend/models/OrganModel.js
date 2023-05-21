@@ -9,7 +9,7 @@ const organSchema = new schema({
         
     },
     organization_name : {
-        
+        type : String,
     },
     o_phone_no : {
         type : String,
@@ -19,7 +19,7 @@ const organSchema = new schema({
         type : String,
         
     },
-    d_qty: {
+    o_qty: {
         type : String,
         
     },

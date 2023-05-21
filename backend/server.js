@@ -13,10 +13,8 @@ const OrderPaymentRoutes = require("./routes/OrderPaymentRoutes");
 const UserRoutes = require("./routes/UserRoutes");
 const DonatorRoutes = require("./routes/DonatorRoutes");
 const OrganRoutes = require("./routes/OrganRoutes");
-
-
-
-
+const ExhangeItemRouts = require("./routes/ExchangeItemRoutes");
+const SelfEmployeeRoutes = require("./routes/SelfEmployeeRoutes");
 
 const app = express();
 dotenv.config();
@@ -64,7 +62,8 @@ app.use("/api/OrderPayments", require("./routes/OrderPaymentRoutes"));
 app.use("/api/Users", require("./routes/UserRoutes"));
 app.use("/api/AddDonator", require("./routes/DonatorRoutes"));
 app.use("/api/AddOrgan", require("./routes/OrganRoutes"));
-
+app.use("/api/AddEmployee", require("./routes/SelfEmployeeRoutes"));
+app.use("/api/AddExchangeItem", require("./routes/ExchangeItemRoutes"));
 
 app.listen(PORT, () => {
     logger.info(`Server is running on PORT: ${PORT}`);

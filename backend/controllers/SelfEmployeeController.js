@@ -3,8 +3,9 @@ var bcrypt = require('bcryptjs');
 
 const addEmployee= async (req, res) => {
   const {
-      Name,
+     
       image,
+      Name,
       addrLine1,
       addrLine2,
       addrLine3,
@@ -13,8 +14,6 @@ const addEmployee= async (req, res) => {
       ExchangeCategory,
       email,
       password,
-      confirmpassword,
-
   } = req.body;
 
   console.log(req.body);
@@ -22,8 +21,9 @@ const addEmployee= async (req, res) => {
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(password, salt); 
   const newEmployee = new Employee({
-    Name,
+    
     image,
+    Name,
     addrLine1,
     addrLine2,
     addrLine3,
@@ -32,8 +32,7 @@ const addEmployee= async (req, res) => {
     ExchangeCategory,
     email,
     password: hash,
-    confirmpassword,
-   
+    
   });
  
   newEmployee
@@ -76,9 +75,9 @@ const updateEmployee = async (req, res) => {
       return emp.status(404).json("There is a no Employees");
     }
 
-    const {Name,image,addrLine1,addrLine2,addrLine3,city,telephone,ExchangeCategory,email,password,confirmpassword} = req.body;
+    const {image,Name,addrLine1,addrLine2,addrLine3,city,telephone,ExchangeCategory,email,password} = req.body;
     
-    const employe = await Employee.findByIdAndUpdate(employeeId, {Name,image,addrLine1,addrLine2,addrLine3,city,telephone,ExchangeCategory,email,password,confirmpassword});
+    const employe = await Employee.findByIdAndUpdate(employeeId, {image,Name,addrLine1,addrLine2,addrLine3,city,telephone,ExchangeCategory,email,password});
 
     res.status(201).json({
       "Updated": true
