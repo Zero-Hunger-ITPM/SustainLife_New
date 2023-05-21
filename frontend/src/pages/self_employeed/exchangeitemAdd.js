@@ -38,7 +38,6 @@ function ExchangeItem(){
         if (
             exchangeitem.exchangeItemName.length <= 0 ||
             exchangeitem.exchangeItemPicture.length <= 0 ||
-            exchangeitem.addrLine1.length <= 0 ||
             exchangeitem.exchangeItemLocation.length <= 0 ||
             exchangeitem.exchangeItemContactNo.length <= 0 
          
@@ -64,39 +63,42 @@ function ExchangeItem(){
 
         <div>
         <Header/>
+        <br></br>
               <div class="content">
                 <h2>Add Exchange Items</h2>
         <div class="form-group">
         <label for="exampleInputEmail1">Exchange Item Name</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name"
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name"
          value={exchangeItemName} required onChange={(e)=>{
             setexchangeItemName(e.target.value);}}></input>
         </div>
         <div class="inputfieldss">
             <label>Product Image</label>
             <input type="file" id="image" onChange={handleImageChange} required/>
-                             {image && (
+                             {exchangeItemPicture && (
                                <div>
-                                 <img src={image} alt="Selected" />
+                                 <img src={exchangeItemPicture} alt="Selected" />
                                 </div>
                               )}
             
          </div>
         <div class="form-group">
-        <label for="exampleInputEmail1">LOcation</label>
-        <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email"
+        <label for="exampleInputEmail1">Location</label>
+        <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email"
          value={exchangeItemLocation} required onChange={(e)=>{
             setexchangeItemLocation(e.target.value);}}></input>
         </div>
         <div class="form-group">
-        <label for="exampleInputEmail1">Employee city</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter city"
+        <label for="exampleInputEmail1">Employee Contact No</label>
+        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter city"
          value={exchangeItemContactNo} required onChange={(e)=>{
             setexchangeItemContactNo(e.target.value);}}></input>
         </div>
         
         <button type="submit" class="btn btn-primary" onClick={saveExchange}>Submit</button>
        </div> 
+       <br></br>
+       <Footer/>
        </div>
 
       )

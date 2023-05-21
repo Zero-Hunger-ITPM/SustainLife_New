@@ -5,6 +5,7 @@ import swal from "sweetalert2";
 import "./Admin.css";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
+import { exportToCSV } from "../utils";
 
 function AdminOrganization(){
     const [organization, setOrganization] = useState([])
@@ -45,7 +46,7 @@ function AdminOrganization(){
 
                             <div className="input-group" style={{ width: "30rem",}}>
                        <div class="srch"> <input type="search"  onChange ={(e)=>{setSearch(e.target.value); }} className="form-control rounded" 
-                       placeholder="Search Product" aria-label="Search" aria-describedby="search-addon"/>
+                       placeholder="Search by Location" aria-label="Search" aria-describedby="search-addon"/>
                 <button type="button" id="srbttn"  className="btn btn-col" style={{color:"white"}}><i class="fa fa-search"></i>
                 </button>
                 </div>
@@ -58,7 +59,7 @@ function AdminOrganization(){
                                         <tr>
                                         <th scope="col">Organization name</th>
                                             <th scope="col">Organization contact no</th>
-                                            <th scope="col">Organization address</th>
+                              
                                             <th scope="col">Organization donation need type</th>
                                             <th scope="col">Organization member count</th> 
                                             <th scope="col">Organization location</th>  
@@ -81,9 +82,8 @@ function AdminOrganization(){
                             <tr data-status="active">
                                  <td>{organization.organization_name}</td>
                                                 <td>{organization.o_phone_no}</td>
-                                                <td>{organization.address}</td>
                                                 <td>{organization.o_donation_type}</td>
-                                                <td>{organization.d_qty}</td> 
+                                                <td>{organization.o_qty}</td> 
                                                 <td>{organization.location}</td>
                     <td>
                     <Link
@@ -103,6 +103,25 @@ function AdminOrganization(){
                   
                </tbody>
            </table>
+           <div className="row-2">
+                    <div className="col"style={{ textAlign: "right",float:"left"  }}>
+                            <Link to="" className="btn btn-danger">Back</Link><br></br>
+                        </div>
+                        <button
+            onClick={() => {
+                const organizations = organization.map(res => {
+                    let res1 = res;
+                    delete res1.image;
+                    return res1;
+                })
+
+                exportToCSV(organizations, "Organizationss");
+            }}
+            type="button"
+          >
+            Download Report
+          </button>
+                    </div>
        </div> 
    </div>   
 </div> 

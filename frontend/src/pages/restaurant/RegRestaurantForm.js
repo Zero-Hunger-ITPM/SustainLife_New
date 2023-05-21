@@ -174,7 +174,7 @@ function RegRestaurantForm (){
          </div>
          <div class="inputfieldss">
             <label>Telephone</label>
-            <input type="text" class="inputss" value={telephone} required onChange={(e)=>{
+            <input type="number" class="inputss" value={telephone} required onChange={(e)=>{
                   setTelephone(e.target.value);
             }}/>
              {errors.includes("mobileNoError") && (
@@ -201,7 +201,7 @@ function RegRestaurantForm (){
          
          <div class="inputfieldss">
             <label>Email</label>
-            <input type="text" class="inputss" value={email} required onChange={(e)=>{
+            <input type="email" class="inputss" value={email} required onChange={(e)=>{
                   setEmail(e.target.value);
             }}/>
               {errors.includes("emailError") && (

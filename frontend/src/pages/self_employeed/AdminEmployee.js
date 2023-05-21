@@ -94,7 +94,7 @@ function AdminEmp(){
                   </Link>
                      </td>
                      <td>
-                     <button className="btn btn-warning"> <Link to={`/AdminEmp/${emp._id}`}> Update </Link>  </button>
+                     <button className="btn btn-warning"> <Link to={`/UpdateSelfEmployee/${emp._id}`}> Update </Link>  </button>
                      </td>
                      </tr>
 

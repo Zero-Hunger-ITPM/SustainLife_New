@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from "react";
+import React,{useState, useEffect, useParams} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios"; 
 import swal from "sweetalert2";
@@ -6,7 +6,7 @@ import "./exchangefood.css";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 
-function Employee(){
+function UpdateItem(){
     const {id} = useParams();
     const [exchangeItemName, setexchangeItemName] = useState([]);
     const [exchangeItemPicture, setexchangeItemPicture] = useState("");
@@ -51,7 +51,7 @@ function Employee(){
   }
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/AddEmployee/${id}`).then(res => {
+    axios.get(`http://localhost:8000/AddExchangeItem/${id}`).then(res => {
       setexchangeItemName(res.data.exchangeItemName);
       setexchangeItemPicture(res.data.exchangeItemPicture);
       setexchangeItemLocation(res.data.exchangeItemLocation);
@@ -69,40 +69,40 @@ function Employee(){
                 <h2>Edit Exchange Item</h2>
                 <div class="form-group">
         <label for="exampleInputEmail1">Exchange Item Name</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name"
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name"
          value={exchangeItemName} required onChange={(e)=>{
             setexchangeItemName(e.target.value);}}></input>
         </div>
         <div class="inputfieldss">
             <label>Product Image</label>
             <input type="file" id="image" onChange={handleImageChange} required/>
-                             {image && (
+                             {exchangeItemPicture && (
                                <div>
-                                 <img src={image} alt="Selected" />
+                                 <img src={exchangeItemPicture} alt="Selected" />
                                 </div>
                               )}
             
          </div>
         <div class="form-group">
-        <label for="exampleInputEmail1">LOcation</label>
-        <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email"
+        <label for="exampleInputEmail1">Location</label>
+        <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email"
          value={exchangeItemLocation} required onChange={(e)=>{
             setexchangeItemLocation(e.target.value);}}></input>
         </div>
         <div class="form-group">
         <label for="exampleInputEmail1">Employee city</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter city"
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter city"
          value={exchangeItemContactNo} required onChange={(e)=>{
             setexchangeItemContactNo(e.target.value);}}></input>
         </div>
        <div></div>
-        <button type="submit" class="btn btn-primary" onClick={sendEmployee}>Submit</button>
+        <button type="submit" class="btn btn-primary" onClick={sendExchangeItem}>Submit</button>
        </div> 
        </div>
 
       )
 }
-export default Employee;
+export default UpdateItem;
 
 
 

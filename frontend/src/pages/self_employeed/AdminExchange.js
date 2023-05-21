@@ -5,6 +5,7 @@ import swal from "sweetalert2";
 import "./Admin.css";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
+import { exportToCSV } from "../utils";
 
 function AdminExc(){
     const [exchange, setExchange] = useState([])
@@ -39,7 +40,7 @@ function AdminExc(){
          <div class="card shodow mb-4">
            <div class="card-header py-3">
            <div>
-                            <button  class="btn btn-secondary" data-toggle="modal"  > <Link to={`/Employee`} > Add New Items</Link>  </button>
+                            <button  class="btn btn-secondary" data-toggle="modal"  > <Link to={`/ExchangeItemAdd`} > Add New Items</Link>  </button>
                             </div>
 
                             <div className="input-group" style={{ width: "30rem",  }}>
@@ -88,7 +89,7 @@ function AdminExc(){
                   </Link>
                      </td>
                      <td>
-                     <button className="btn btn-warning"  > <Link to={`/EmplAdmin/${exch._id}`} > Update </Link>  </button>
+                     <button className="btn btn-warning"  > <Link to={`/UpdateItem/${exch._id}`} > Update </Link>  </button>
                      </td>
                      </tr>
 
@@ -96,6 +97,25 @@ function AdminExc(){
                   
                </tbody>
            </table>
+           <div className="row-2">
+                    <div className="col"style={{ textAlign: "right",float:"left"  }}>
+                            <Link to="/RestaurantHomeNew" className="btn btn-danger">Back</Link><br></br>
+                        </div>
+                        <button
+            onClick={() => {
+                const exchanges = exchange.map(res => {
+                    let res1 = res;
+                    delete res1.image;
+                    return res1;
+                })
+
+                exportToCSV(exchanges, "ExchangeItems");
+            }}
+            type="button"
+          >
+            Download Report
+          </button>
+                    </div>
        </div> 
    </div>   
 </div> 

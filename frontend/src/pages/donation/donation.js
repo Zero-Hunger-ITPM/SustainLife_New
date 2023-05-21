@@ -7,7 +7,6 @@ import Header from '../../components/header'
 import bg from "../../images/donatehome.png"
 
 export default function Donation(){
-    const [donation, setDonations] = useState([]);
     const [organization, setOrganization] = useState([]);
     const [first_name, setfirst_name] = useState("");
     const [last_name, setlast_name] = useState("");
@@ -15,7 +14,7 @@ export default function Donation(){
     const [phone_no, setphone_no] = useState("");
     const [donation_type, setdonation_type] = useState("");
     const [d_qty, setd_qty] = useState("");
-    const [location, setlocation] = useState("");
+    const [errors, setErrors] = useState([]);
 
     const [OrganizationSearch , setSearch] = useState("");
 
@@ -33,14 +32,45 @@ export default function Donation(){
     function saveDonation(e){
         e.preventDefault();
         alert("Going to add New Donation");
-      
+        let hasErrors = false;
+
+    const nameModel = /^[a-zA-Z]+$/
+    var quantities =/^\+?1?\s*?\(?\d{3}(?:\)|[-|\s])?\s*?\d{3}[-|\s]?\d{4}$/
+   
+    if (first_name.length <= 0 && !nameModel.test(first_name)) {
+        hasErrors = true;
+        setErrors((prev) => [...prev, "nameError"]);
+      } 
+    
+    if (last_name.length <= 0 && !nameModel.test(last_name)) {
+        hasErrors = true;
+        setErrors((prev) => [...prev, "nameError"]);
+      } 
+
+      if (donation_type.length <= 0 && !nameModel.test(donation_type)) {
+        hasErrors = true;
+        setErrors((prev) => [...prev, "nameError"]);
+      } 
+
+      if(!quantities.test(d_qty)){
+        hasErrors=true;
+        setErrors((prev) => [...prev, "QuantityError"]);
+       }
+
+       if(!quantities.test(phone_no)){
+        hasErrors=true;
+        setErrors((prev) => [...prev, "QuantityError"]);
+       }
+  
+
         const donate = {
             first_name,
             last_name,
             address,
             phone_no,
             donation_type,
-            d_qty
+            d_qty,
+          
         };
         if (
             donate.first_name.length <= 0 ||
@@ -49,23 +79,25 @@ export default function Donation(){
             donate.phone_no.length <= 0 ||
             donate.donation_type.length <= 0 ||
             donate.d_qty.length <= 0 
+            
          
         ) {
           //setErrors(true);
           return;
         }
         axios.post("http://localhost:8000/api/AddDonator",donate).then(()=>{
+            swal.fire({
+                title: "Donate Added Successfully !!.",
+                icon: "success",
+                confirmButtonText: "OK",
+                  }).then(function () {
+                      // Redirect the user
+                      window.location.href = "";
+                    });
         }).catch((err)=>{
           alert(err)
         });
-        swal.fire({
-          title: "Donate Added Successfully !!.",
-          icon: "success",
-          confirmButtonText: "OK",
-            }).then(function () {
-                // Redirect the user
-                window.location.href = "";
-              });
+       
       };
   return(
     <div>  
@@ -89,41 +121,55 @@ export default function Donation(){
             <hr></hr>
             <div class="form-group">
             <label for="exampleInputEmail1">Donater first name</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" 
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" 
             value={first_name} required onChange={(e)=>{
                 setfirst_name(e.target.value);}}/>
+                 {errors.includes("nameError") && (
+          <p class="alert-txt">First Name is Required </p>
+        )}
             </div>
             <div class="form-group">
             <label for="exampleInputEmail1">Donater last name</label>
-            <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email" 
+            <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email" 
             value={last_name} required onChange={(e)=>{
                 setlast_name(e.target.value);}}/>
+                 {errors.includes("nameError") && (
+          <p class="alert-txt">Last Name is Required </p>
+        )}
             </div>
             <div class="form-group">
             <label for="exampleInputEmail1">Donation location</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter location"
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter location"
             value={address} required onChange={(e)=>{
                 setaddress(e.target.value);}}/>
             </div>
             <div class="form-group">
             <label for="exampleInputEmail1">Donater contact number</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter contact number"
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter contact number"
             value={phone_no} required onChange={(e)=>{
                 setphone_no(e.target.value);}}/> 
+                       {errors.includes("QuantityError") && (
+          <p class="alert-txt">Please Enter Valid Phone No</p>
+        )}
             </div>
             <div class="form-group">
             <label for="exampleInputEmail1">Donation type</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Food/Fund"
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Food/Fund"
             value={donation_type} required onChange={(e)=>{
                 setdonation_type(e.target.value);}}/>
+                  {errors.includes("nameError") && (
+          <p class="alert-txt">Donation Type is Required </p>
+        )}
             </div>
             <div class="form-group">
             <label for="exampleInputEmail1">Donation quantity</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter qty"
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter qty"
              value={d_qty} required onChange={(e)=>{
                 setd_qty(e.target.value);}}/>
+                 {errors.includes("QuantityError") && (
+          <p class="alert-txt">Please Enter Valid Quantity</p>
+        )}
             </div>
-            
            <div></div>
             <button type="submit" class="btn btn-primary" onClick={saveDonation}>Submit</button>
            </div>
@@ -149,7 +195,6 @@ export default function Donation(){
                                         <tr>
                                             <th scope="col">Organization name</th>
                                             <th scope="col">Organization contact no</th>
-                                            <th scope="col">Organization address</th>
                                             <th scope="col">Organization donation need type</th>
                                             <th scope="col">Organization member count</th> 
                                             <th scope="col">Organization location</th>  
@@ -168,9 +213,8 @@ export default function Donation(){
                                               <><tr>
                                                 <td>{organization.organization_name}</td>
                                                 <td>{organization.o_phone_no}</td>
-                                                <td>{organization.address}</td>
                                                 <td>{organization.o_donation_type}</td>
-                                                <td>{organization.d_qty}</td> 
+                                                <td>{organization.o_qty}</td> 
                                                 <td>{organization.location}</td>    
                                              
                                                 </tr></>

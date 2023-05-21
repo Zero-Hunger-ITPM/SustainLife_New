@@ -24,7 +24,7 @@ const header = () => {
                         <a href="#contact" className="nav__link">Contact us</a>
                     </li>
                     <li className="nav__item">
-
+                        <a href="/RestaurantHomeNew" className="nav__link">Food Sales</a>
                     </li>
 
                     <li className="nav__item">
