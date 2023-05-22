@@ -20,6 +20,14 @@ MongoDB, ExpressJS, ReactJS, NodeJS
 
 #### IDE - VS Code
 
+#### Other Tools - Selenium, SonarQube, Postman
+
+#### Procedure for Setup and Run the Project
+  1. Download the zip folder of the project
+  2. Exract it onto your pc.
+  3. Install npm into both backend and frontend.
+  4. Run the project using npm run dev command.
+
 
 
 
